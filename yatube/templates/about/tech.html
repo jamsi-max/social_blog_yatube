@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Технологии{% endblock %}
+
+{% block content %}
+<div class="container">
+  <section id="circleBar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="_aboutCard rounded">
+            <div class="row">
+              <div class="col-lg-7 col-md-12 col-sm-12 about-item">
+                <div class="row">
+                  <div class="col-md-12 left-0">
+                    <!-- image -->
+                    <img width="110%" src="../../media/techno.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-12 col-sm-12">
+                <!-- about me -->
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <div class="bp-2 mb-2">
+                      <div class="_blogTitle font-weight-bold h2">Описание проекта</div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="_content mt-2 mb-3">
+                      <ul class="list-group text-start">
+                        <li class="list-group-item">Версия 1.1)</li>
+                        <li class="list-group-item">Сайт полностью адаптирован под различные экраны</li>
+                        <li class="list-group-item">Добавлена возможность входа через VK в меню входа или регистрации, если нет желания регистрироваться с помощью почты</li>
+                        <li class="list-group-item">Добавлено адаптивное и анимированное меню "бургер"</li>
+                        <li class="list-group-item">Оптимизировано отображение картинок больших и маленьких размеров средствами фронтенда HTML и CSS (вместо использования костыля с thumbnail)</li>
+                        <li class="list-group-item">Добавлен интерактивный поиск с использованием ванильного JS(регистронезависимый)</li>
+                        <li class="list-group-item">Добавлена возможность удаление постов</li>
+                        <li class="list-group-item">Оптимизирована безопасность в части удаления и редактирования авторами своих постов</li>
+                        <li class="list-group-item">Добавлена система просмотров постов с защитой от накруток(перезагрузка браузера не влияет на просмотры). Настроен виджет отображения количества просмотров постов</li>
+                        <li class="list-group-item">Добавлена система "лайков" с использованием AJAX(jquery). Лайки доступны авторизованным пользователям. Настроен виджет отображения количества лайков у постов</li>
+                        <li class="list-group-item">Добавлена вкладка отображения самых просматриваемых постов на основе количества просмотров</li>
+                        <li class="list-group-item">В разделе "Об авторе" добавлен виджит "скиллов" рандомно генерирующий значения для виджитов при загрузке страницы и при нажатии на кнопку. Добавлена кнопка для проверки страницы 404</li>
+                        <li class="list-group-item">Добавлена кастомная страница 404</li>
+                        <li class="list-group-item">Доработана система авторизации. После заполнения формы пегистрации пользователь автоматически авторизовывается на сайте</li>
+                      </ul>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

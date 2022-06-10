@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Об авторе{% endblock %}
+
+{% block content %}
+<div class="container">
+<section id="circleBar">
+	<div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="_aboutCard rounded">
+          <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12 about-item">
+              <div class="row">
+                <div class="col-md-12 about-item-img mt-3">
+                  <!-- image -->
+                  <img src="../../media/ava.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12">
+              <!-- about me -->
+              <div class="row mt-5">
+                <div class="col-md-12">
+                  <div class="bp-2 mb-2 border-bottom">
+                    <div class="_blogTitle font-weight-bold h2">Привет я Макс!</div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="_content mt-2 mb-3 border-bottom">
+                    <p>Тут я рассказываю о себе, что я умею, чему хочу научиться и прочая никем ничитаемая информация :)
+										Кстати я написал своего телеграм-бота он тут <a href="https://t.me/ConverToTextBot" class="info text-decoration-none">ConvertatorBot</a>
+										</p>
+										<p>Вы можете связаться со мной:</p>
+										<a href="https://t.me/Jony2024"><i class="fab fa-telegram-plane text-decoration-none h3"></i></a>
+                  </div>
+
+    				<div class="_content mt-5 mb-3">
+    					<p>
+    						<b>Тут чьи-то скилы</b>
+    					</p>
+
+    					<div class="row">
+    						<div class="col">
+    							<div class="round circle-bar-item" data-value="0.67" data-size="200" data-thickness="12">
+    								<strong></strong>
+    								<span class="d-flex justify-content-center align-items-center">
+    									<i class="fab fa-html5"></i><span class="circle-bar-text text-nowrap">HTML SKILLS</span>
+    								</span>
+    							</div>
+    						</div>
+    						<div class="col">
+    							<div class="round circle-bar-item" data-value="0.47" data-size="200" data-thickness="12">
+    								<strong></strong>
+    								<span class="d-flex justify-content-center align-items-center">
+    									<i class="fab fa-css3"></i>
+    									<span class="circle-bar-text text-nowrap">CSS SKILLS</span>
+    								</span>
+    							</div>
+    						</div>
+    						<div class="col">
+    							<div class="round circle-bar-item" data-value="0.37" data-size="200" data-thickness="12">
+    								<strong></strong>
+    								<span class="d-flex justify-content-center align-items-center">
+    									<i class="fab fa-js"></i>
+    									<span class="circle-bar-text text-nowrap">JS SKILLS</span>
+    								</span>
+    							</div>
+    						</div>
+    						<div class="w-100"></div>
+    						<div class="col">
+    							<div class="round circle-bar-item" data-value="0.55" data-size="200" data-thickness="12">
+    								<strong></strong>
+    								<span class="d-flex justify-content-center align-items-center">
+    									<i class="far fa-database"></i>
+    									<span class="circle-bar-text text-nowrap">DB SKILLS</span>
+    								</span>
+    							</div>
+    						</div>
+    						<div class="col">
+    							<div class="round circle-bar-item" data-value="0.61" data-size="200" data-thickness="12">
+    								<strong class="d-flex justify-content-center align-items-center"></strong>
+    								<span class="d-flex justify-content-center align-items-center">
+    									<i class="fab fa-python"></i>
+    									<span class="circle-bar-text text-nowrap">Python SKILLS</span>
+    								</span>
+    							</div>
+    						</div>
+    					</div>
+					<div class="author-button-block mt-5 mb-5">
+						<button class="btn btn-outline-danger circle-button" onclick="Circlle('.round');">Узнать свои скилы!</button>
+						<a class="btn btn-outline-dark text-decoration-none" href="dalekiy_anus">Сходить в никуда</a>
+					</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'js/about_me_skill.js' %}"></script>
+{% endblock %}

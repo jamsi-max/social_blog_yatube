@@ -1,0 +1,26 @@
+<div class="_shareIcons d-inline-flex justify-content-end">
+  <ul class="list-unstyled m-0 d-inline-flex widget-icon">
+    <li class="ml-1 mr-1 text-nowrap">
+      <a class="text-decoration-none comment-widget" href="{% url 'posts:post_detail' post.pk %}#comment">
+        {% if post.comment.count %}
+          <i class="fas fa-comment"></i>
+        {% else %}
+          <i class="far fa-comment "></i>
+        {% endif%}
+         {{ post.comment.count }}
+      </a>
+    </li>
+    <li class="ml-1 mr-1 like-widget text-nowrap">
+      <button id="card-like-{{ post.id }}" class="card-like" data-post="{{ post.id }}">
+        {% if post in posts_like %}
+          <i id ="like-true-{{ post.id }}" class="far fa-fire-alt fire-true" data-like="True"></i>
+        {% else %}
+          <i id ="like-false-{{ post.id }}" class="fas fa-fire-alt fire-false" data-like="False"></i>
+        {% endif %}
+      </button> <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>
+    </li>
+    <li class="ml-1 mr-1 text-nowrap">
+      <i class="fa fa-eye eye-widget" aria-hidden="true"></i> {{ post.views_count }}
+    </li>
+  </ul>
+</div>

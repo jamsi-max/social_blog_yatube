@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_obj.0.group.title|title }}{% endblock %}
+
+{% block content %}
+  <h1 class="main-title">{{ page_obj.0.group.title }}</h1>
+  <p class="sub-main-title">{{ page_obj.0.group.description }}</p>
+
+  {% include 'posts/includes/post_list.html' %}
+
+    <script src="{% static 'js/post_view_full.js' %}"></script>
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

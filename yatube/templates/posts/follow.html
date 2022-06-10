@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Посты подписок{% endblock %}
+
+{% block content %}
+  <h1 class="main-title">Посты подписок</h1>
+
+  {% include 'posts/includes/switcher.html' %}
+
+
+    {% if page_obj %}
+
+      {% include 'posts/includes/post_list.html' %}
+
+    {% else %}
+      <div class="row justify-content-center">
+        <div class="col-md-8 p-5">
+          <p class="text-center"><b>У вас нет подписок на авторов</b></p>
+        </div>
+      </div>
+    {% endif %}
+
+    <script src="{% static 'js/post_view_full.js' %}"></script>
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

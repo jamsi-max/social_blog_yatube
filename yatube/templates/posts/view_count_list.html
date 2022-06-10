@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Самые просматриваемые посты{% endblock %}
+
+{% block content %}
+  <h1 class="main-title">Самые просматриваемые посты</h1>
+
+  {% include 'posts/includes/switcher.html' %}
+
+  {% include 'posts/includes/post_list.html' %}
+    <script src="{% static 'js/post_view_full.js' %}"></script>
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

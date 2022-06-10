@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Последние обновления на сайте{% endblock %}
+
+{% block content %}
+
+  <h1 class="main-title">Последние обновления на сайте</h1>
+
+  {% include 'posts/includes/switcher.html' %}
+
+  {% include 'posts/includes/post_list.html' %}
+
+    <script src="{% static 'js/post_view_full.js' %}"></script>
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

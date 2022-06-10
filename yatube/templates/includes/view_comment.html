@@ -1,0 +1,24 @@
+<div class="col-md-6 offset-md-3">
+  <div class="media mb-4">
+    <div class="media-body">
+      <p><a name="comment"></a></p>
+      <h2 class="border-bottom comment-title">Коментарии:</h2>
+      {% for comment in comments %}
+      <div class="border-bottom">
+        <h5 class="mt-3">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <a class="comment-author-link" href="{% url 'posts:profile' comment.author %}">
+            {{ comment.author.first_name|default:comment.author }}
+          </a>
+        </h5>
+        <p>
+          {{ comment.text }}
+        </p>
+        <p>
+          Дата: {{ comment.created }}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

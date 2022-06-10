@@ -1,0 +1,16 @@
+<footer class="footer border-top text-center py-3 d-flex justify-content-center align-items-center">
+  <p class="align-middle">© {{ year }} Copyright <span style="color:red">Jo</span>ny2024</p>
+  {% if visiterAll %}
+  <div class="ms-5 visitors d-flex justify-content-center align-items-center">
+    <i class="fas fa-signal visitors-logo"></i>
+    <div class="ms-3 d-flex flex-column justify-content-center align-items-center">
+      <div class="d-flex justify-content-center align-items-center">
+        <span>{{ visiterAll }} </span> <i class="fas fa-reply-all ms-2"></i>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mt-1">
+        <span>{{ visiterDay|default:0 }}</span> <i class="fas fa-reply ms-2"></i>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</footer>

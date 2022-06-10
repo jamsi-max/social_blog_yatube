@@ -1,0 +1,70 @@
+<div class="section-cards">
+  <div class="container">
+    <div class="row infinite-container">
+      {% for post in page_obj %}
+
+        <div class="col-md-6 col-lg-4 d-flex infinite-item">
+          <div class="card">
+            <div class="container-image">
+              <div class="card-image image">
+                <img src="{{ mediaURL }}{{ post.image|default:'posts/no_image.jpg' }}" class="img-fluid">
+              </div>
+            </div>
+            <!-- POPUP IMAGE -->
+            <div class="popup-image">
+              <img class="full-img" src="{{ mediaURL }}{{ post.image|default:'posts/no_image.jpg' }}" alt="img">
+            </div>
+            <!-- END POPUP IMAGE -->
+            <div class="content">
+              <div class="card-info-group-views row">
+                <div class="row justify-content-end">
+                  <!-- widget-icon-like-views -->
+                  {% include 'includes/widget_icon.html' %}
+                  </div>
+                  <div>
+                    <span class="text-info-item">Автор:</span>
+                    <a
+                    class="text-decoration-none d-inline-block text-info-link"
+                    href="{% url 'posts:profile' post.author %}">
+                      {{ post.author.get_full_name|default:post.author.username }}
+                    </a>
+                    {% if post.author.following.count %}
+                      <i class="ms-2 fas fa-users"></i> <span class="ms-2">{{ post.author.following.count }}</span>
+                    {% else %}
+                      <i class="ms-2 far fa-users"></i> <span class="ms-2">{{ post.author.following.count }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              <div>
+              <span class="text-info-item">Группа:</span>
+              {% if post.group %}
+                <a
+                class="text-decoration-none d-inline-block text-group-link"
+                href="{% url 'posts:group_list' post.group.slug %}">
+                  {{ post.group }}
+                </a>
+              {% else %}
+                <span class="no-group">не выбрана</span>
+              {% endif %}
+              </div>
+              <p class="card-description">
+                {{ post.text|truncatechars:80 }}
+              </p>
+              <div class="card-botttom">
+                <a
+                class="btn btn-outline-info text-decoration-none card-botttom-link"
+                href="{% url 'posts:post_detail' post.pk %}">
+                почитать
+                </a>
+                <h6 class="card-pub_date text-nowrap">
+                {{ post.pub_date|date:"d E Y" }}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>

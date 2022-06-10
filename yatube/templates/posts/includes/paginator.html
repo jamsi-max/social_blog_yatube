@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-12 d-flex justify-content-center">
+    {% if page_obj.has_next %}
+      <a class="infinite-more-link btn btn-outline-info text-decoration-none card-botttom-link mb-4" href="?page={{ page_obj.next_page_number }}">загрузить ещё
+      </a>
+      {% endif %}
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{% load user_filters %}
+
+{% if form.errors %}
+  {% for key, value in form.errors.items %}
+    <div class="alert alert-danger">
+      {{ key }}:{{ value }}
+    </div>
+  {% endfor %}
+{% for error in form.non_field_errors %}
+  <div class="alert alert-danger">
+    {{ error|escape }}
+  </div>
+{% endfor %}
+{% endif %}

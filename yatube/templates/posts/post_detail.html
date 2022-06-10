@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Пост {{ post.text|truncatechars:30 }}.{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="_blogCard rounded">
+          <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-12 detail-item-img">
+                  <!-- image -->
+                  <img
+                    src="{{ mediaURL }}{{ post.image|default:'posts/no_image.jpg' }}"
+                    alt="image post"
+                    class="img-fluid rounded position-relative shadow-lg _moveTop">
+                </div>
+                <!-- POPUP IMAGE -->
+                <div class="popup-image">
+                  <img class="full-img" src="{{ mediaURL }}{{ post.image|default:'posts/no_image.jpg' }}" alt="img">
+                </div>
+                <!-- END POPUP IMAGE -->
+
+                <div class="date-icon-block">
+                  <div>
+                    <div class="col-md-12 d-flex pb-4 justify-content-between">
+                      <!-- text and icons -->
+                      <div class="_day text-center align-self-center pb-2">
+                        <span class="_date_year">{{ post.pub_date|date:"y" }}</span>
+                        <span class="_date">{{ post.pub_date|date:"d" }}</span> {{ post.pub_date|date:"E" }}
+                      </div>
+                      <!-- icon -->
+                    </div>
+                  </div>
+                  <!-- widget-icon-like-views -->
+                  {% include 'includes/widget_icon.html' %}
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12">
+              <!-- content -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="bp-2 mb-2 border-bottom">
+                    <div class="_badge pt-1 pb-1 pl-1 pr-2 mt-2 d-inline-flex align-items-center">
+                      <span class="text-info-item">Автор: </span>
+                      <a
+                      class="text-decoration-none d-inline-block text-info-link ml-1"
+                      href="{% url 'posts:profile' post.author %}">
+                        {{ post.author.get_full_name|default:post.author.username }}
+                      </a>
+                        {% if post.author.following.count %}
+                            <i class="ms-2 fas fa-users"></i> <span class="ms-1">{{ post.author.following.count }}</span>
+                        {% else %}
+                            <i class="ms-2 far fa-users"></i> <span class="ms-1">{{ post.author.following.count }}</span>
+                        {% endif %}
+                    </div>
+                    <div>
+                      <span class="text-info-item">Группа:</span>
+                      {% if post.group %}
+                        <a
+                        class="text-decoration-none d-inline-block text-group-link"
+                        href="{% url 'posts:group_list' post.group.slug %}">
+                          {{ post.group }}
+                        </a>
+                      {% else %}
+                        <span class="no-group">не выбрана</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="_content mt-2 mb-3 text-break">
+                    {{ post.text }}
+                  </div>
+                  {% if user == post.author %}
+                  <div class="mt-5 mb-3 button-edit-block">
+                    <a
+                    class="btn btn-outline-info text-decoration-none card-botttom-link"
+                    href="{% url "posts:post_edit" post.id %}"
+                    >
+                    редактировать запись
+                    </a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger ms-3" data-toggle="modal" data-target="#exampleModal">
+                    удалить пост
+                    </button>
+                    <!-- Button trigger modal -->
+                  </div>
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <!-- добавление коментариев -->
+    {% include 'includes/add_comment.html' %}
+  </div>
+</div>
+
+<div class="container">
+<!-- отображение комментариев  -->
+{% include 'includes/view_comment.html' %}
+</div>
+    <!-- Modal -->
+    {% include 'posts/includes/modal_delete.html' %}
+
+    <script src="{% static 'js/post_detail_img_full.js' %}"></script>
+{% endblock %}

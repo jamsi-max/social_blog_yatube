@@ -1,0 +1,8 @@
+<div class="social-auth mt-3 d-flex flex-column justify-content-center align-items-center">
+  <div>
+    <p class="d-block">Вход через социальные сети:</p>
+  </div>
+  <div>
+    <a href="{% url 'social:begin' 'vk-oauth2' %}?next={{ next }}" class="btn text-decoration-none vk-link"><i class="fab fa-vk"></i> Войти через VK</a>
+  </div>
+</div>
