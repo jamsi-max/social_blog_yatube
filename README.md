@@ -55,6 +55,7 @@ python manage.py runserver
 ```
 #### Автор: 
 **© jamsi-max**
+
 Связь с автором(телеграмм): https://t.me/Jony2024
 
 #### Лицензия
